@@ -1,0 +1,146 @@
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <div id="main-navigation" class="nav-wrapper blue darken-1">
+        <a href="#" class="brand-logo thin white-text left" style="margin-left: 25px">Scheduler</a>
+        <ul class="right">
+          <li><a id='sort-button' class='dropdown-button' href='#'><i class="material-icons" style="margin-right: 25px; margin-left:25px;">sort_by_alpha</i></a></li>
+
+            <!-- Dropdown Structure -->
+            <ul id='sort-options' class='dropdown-content'>
+              <li><a id="quickest-first" href="#!">Quickest First</a></li>
+              <li><a id="longest-first" href="#!">Longest First</a></li>
+              <li class="divider"></li>
+              <li><a href="#0" id="importance">Importance</a></li>
+              <li class="divider"></li>
+              <li><a href="#0" id="name">Name</a></li>
+              <li><a href="#0" id="name-reverse">Name Reverse</a></li>
+              <li class="divider"></li>
+              <li><a class="modal-trigger" id="sort-commute" href="#directions">Shortest Commute</a></li>
+            </ul>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="directions" class="modal modal-fixed-footer">
+    <form id="get-directions" action="index.html">
+      <div class="modal-content">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="origin" type="text" name="origin" required>
+            <label for="origin">Start Point</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="destination" type="text" name="destination" required>
+            <label for="destination">End Point</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn left red modal-close waves-effect" value="cancel">
+        <input class=" modal-action waves-effect waves-green btn"type="submit" value="Reorder List">
+      </div>
+    </form>
+  </div>
+</header>
+<main>
+  <div id="main-todolist-container" class="container">
+
+      <div id="quick-add" class="row">
+        <div class="col m10">
+          <div class="card">
+            <div class="card-content">
+                <form id="quick-add-form" class="" action="index.html" method="post">
+                <div class="input-field">
+                  <input id="card-title" type="text" required>
+                  <label for="card-title">New Card Title</label>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div id="instructions" class="row">
+      <div class="col m10" >
+        <div class="card hoverable">
+          <div class="card-content">
+            <p class="flow-text">To add something just click the floating red button down there to the right!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="todo-list">
+    </div>
+
+    <!-- Modal Trigger -->
+    <div id="todo-list-actions" class="horizontal right-align">
+        <a class="btn-floating btn-large waves-effect modal-trigger waves-light red right" href="#modal1"><i class="material-icons">add</i></a>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+      <form id="add-item" class="col s12" action="index.html" method="post">
+      <div class="modal-content">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="item" type="text" name="item" required placeholder="Add todo item here!">
+            <label for="item">Item</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="item-location" required name="item-location" type="text">
+            <label for="item-location">Location</label>
+          </div>
+        </div>
+        <div class="row">
+          <p class="grey-text">How long will this take</p>
+          <div class="input-field col s3">
+            <input id="time-hr" type="text" name="time-hour">
+            <label for="time-hr">Hours</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="time-min" type="text" name="time-minute">
+            <label for="time-min">Minutes</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="item-description" class="materialize-textarea" name="item-description" rows="8" cols="40" placeholder="Add some more information about what you need to do here."></textarea>
+            <label for="item-description">Description</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <p class="range-field">
+              <span class="grey-text center">Importance(0-10)</span>
+              <input type="range" id="importance-scale" min="0" max="10" />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn left red modal-close waves-effect" value="cancel">
+        <input class=" modal-action waves-effect waves-green btn"type="submit" value="Add">
+      </div>
+    </form>
+    </div>
+  </div>
+</main>
+  <footer class="page-footer blue darken-1 lighten-1">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2016 Copyright Text
+      </div>
+    </div>
+  </footer>
+<!-- <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGI8cJB75FTU-cVnzLfbkrka0b-tU4JE8&callback=initMap">
+</script> -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgurW0r7vKwTLkkcGpfTchX_rKKrAlZWA&libraries=places"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.js" charset="utf-8"></script>
+<script src="./javascripts/main.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
